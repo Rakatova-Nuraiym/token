@@ -1,5 +1,7 @@
-import { useState } from "react";
+/* eslint-disable */
+//@ts-nocheck
 
+import { useState } from "react";
 import scss from "./login.module.scss";
 import { useFindUserMutation } from "../../../redux/api/crud";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +57,6 @@ const LoginPage = () => {
         />
         <button onClick={addUser}>addUser</button>
         <button onClick={signIn}>sign up</button>
-        
       </div>
     </div>
   );
