@@ -1,13 +1,9 @@
-/* eslint-disable */
-//@ts-nocheck
-
 import { useState } from "react";
 import scss from "./login.module.scss";
 import { useFindUserMutation } from "../../../redux/api/crud";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,14 +13,18 @@ const LoginPage = () => {
   const addUser = async () => {
     const findUsers = {
       email,
-      userName,
       password,
     };
     const response = await findUser(findUsers);
-    const responseData = response.data.token;
-    localStorage.setItem("token", responseData);
-    localStorage.setItem("isAuth", "true");
-    console.log(responseData);
+
+    if ("data" in response) {
+      const responseData = response.data.token;
+      localStorage.setItem("token", responseData);
+      localStorage.setItem("isAuth", "true");
+      console.log(responseData);
+    } else {
+      console.error("Ligin failed:", response.error);
+    }
     if (findUsers) {
       navigate("/home");
     }
@@ -43,13 +43,7 @@ const LoginPage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="text"
-          value={userName}
-          onChange={(e) => {
-            setUserName(e.target.value);
-          }}
-        />
+
         <input
           type="text"
           value={password}

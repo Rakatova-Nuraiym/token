@@ -18,7 +18,7 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ["crud"],
     }),
-    findUser: builder.mutation<TODO.PostResponse, TODO.PostRequest>({
+    findUser: builder.mutation({
       query: (findUser) => ({
         url: `login`,
         method: "POST",

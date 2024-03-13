@@ -4,36 +4,33 @@ export namespace TODO {
 
   type GetRequest = {
     userName: string;
-    login: string;
+    email: string;
     password: string;
     _id: number | number;
   }[];
-
+ 
   type PostResponse = {
-    userName: string;
-    login: string;
-    password: string;
-    _id: number | number;
+    token: string;
+    // userName: string;
+    // email: string;
+    // password: string;
+    // _id: number | number;
   };
   type PostRequest = {
-    userName: string;
-    login: string;
+    email: string;
     password: string;
-    _id: number | number;
   }[];
   type PostProductResponse = {
     productName: string;
-    quantity: number;
-    price: number;
+    quantity: string;
+    price: string;
     photoUrl: string;
-    _id: number;
   };
   type PostProductRequest = {
     productName: string;
-    quantity: number;
-    price: number;
+    quantity: string;
+    price: string;
     photoUrl: string;
-    _id: number;
   }[];
 
   type GetProductResponse = void;
