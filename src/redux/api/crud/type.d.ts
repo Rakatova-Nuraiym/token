@@ -8,7 +8,7 @@ export namespace TODO {
     password: string;
     _id: number | number;
   }[];
- 
+
   type PostResponse = {
     token: string;
     // userName: string;
@@ -19,7 +19,8 @@ export namespace TODO {
   type PostRequest = {
     email: string;
     password: string;
-  }[];
+    userName: string;
+  };
   type PostProductResponse = {
     productName: string;
     quantity: string;
